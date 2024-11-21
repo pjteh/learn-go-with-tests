@@ -12,3 +12,12 @@ func TestHello(t *testing.T) {
 		t.Errorf("got %q want %q", got, want)
 	}
 }
+
+func TestWorld(t *testing.T) {
+	got := World()
+	want := "Awesome!"
+
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
+}
