@@ -7,8 +7,11 @@ import (
 	"strconv"
 )
 
-func Hello() string {
-	return "Hello World!"
+func Hello(name string) string {
+	if name != "" {
+		return "Hello, " + name + "!"
+	}
+	return "Hello, World!"
 }
 
 func World() string {
