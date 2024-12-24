@@ -8,5 +8,10 @@ func Sum(arr []int) int {
 	return sum
 }
 func SumAll(intSlice ...[]int) []int {
-	return nil
+	returnSlice := []int{}
+	for _, value := range intSlice {
+		sum := Sum(value)
+		returnSlice = append(returnSlice, sum)
+	}
+	return returnSlice
 }
