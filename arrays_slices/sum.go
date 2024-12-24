@@ -7,3 +7,6 @@ func Sum(arr []int) int {
 	}
 	return sum
 }
+func SumAll(intSlice ...[]int) []int {
+	return nil
+}

@@ -12,3 +12,13 @@ func TestSum(t *testing.T) {
 		}
 	})
 }
+
+func TestSumAll(t *testing.T) {
+	t.Run("sum slice of 3 elements", func(t *testing.T) {
+		got := SumAll([]int{1, 1, 1})
+		want := []int{3}
+		if got != want {
+			t.Errorf("want %v, but got %v", want, got)
+		}
+	})
+}
