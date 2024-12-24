@@ -1,6 +1,9 @@
 package structsmethodsinterfaces
 
-import "testing"
+import (
+	"math"
+	"testing"
+)
 
 func TestPerimeter(t *testing.T) {
 	rectangle := Rectangle{10.0, 10.0}
@@ -25,7 +28,7 @@ func TestArea(t *testing.T) {
 	t.Run("circular area", func(t *testing.T) {
 		circle := Circle{10}
 		got := circle.Area(circle)
-		want := 314.159
+		want := math.Pi * circle.Radius * circle.Radius
 
 		if got != want {
 			t.Errorf("want %.2f, got %.2f", want, got)

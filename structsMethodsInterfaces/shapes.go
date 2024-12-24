@@ -1,5 +1,7 @@
 package structsmethodsinterfaces
 
+import "math"
+
 type Rectangle struct {
 	Width  float64
 	Length float64
@@ -8,8 +10,6 @@ type Rectangle struct {
 type Circle struct {
 	Radius float64
 }
-
-const pi = 3.14159
 
 // Calculates perimeter of a rectangle of length l and width w
 func Perimeter(r Rectangle) float64 {
@@ -22,5 +22,5 @@ func (rect *Rectangle) Area(r Rectangle) float64 {
 }
 
 func (c *Circle) Area(circle Circle) float64 {
-	return pi * c.Radius * c.Radius
+	return math.Pi * c.Radius * c.Radius
 }
