@@ -7,11 +7,13 @@ import (
 	"strconv"
 )
 
+const englishHelloPrefix = "Hello, "
+
 func Hello(name string) string {
-	if name != "" {
-		return "Hello, " + name + "!"
+	if name == "" {
+		name = "World"
 	}
-	return "Hello, World!"
+	return englishHelloPrefix + name + "!"
 }
 
 func World() string {
