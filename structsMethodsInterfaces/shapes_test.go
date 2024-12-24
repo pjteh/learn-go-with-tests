@@ -25,23 +25,10 @@ func TestArea(t *testing.T) {
 	t.Run("test rectangular area", func(t *testing.T) {
 		rectangle := Rectangle{20.0, 40.0}
 		checkArea(t, rectangle, 800.0)
-		// got := rectangle.Area(rectangle)
-		// want := 800.0
-
-		// if got != want {
-		// 	t.Errorf("want %.2f, got %.2f", want, got)
-		// }
 	})
 	// Test for circular area
 	t.Run("circular area", func(t *testing.T) {
 		circle := Circle{10}
 		checkArea(t, circle, math.Pi*circle.Radius*circle.Radius)
-		// got := circle.Area(circle)
-		// want := math.Pi * circle.Radius * circle.Radius
-
-		// if got != want {
-		// 	t.Errorf("want %.2f, got %.2f", want, got)
-		// }
-
 	})
 }
