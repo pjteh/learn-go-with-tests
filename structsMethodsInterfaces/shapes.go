@@ -11,16 +11,20 @@ type Circle struct {
 	Radius float64
 }
 
+type Shape interface {
+	Area() float64
+}
+
 // Calculates perimeter of a rectangle of length l and width w
 func Perimeter(r Rectangle) float64 {
 	return 2*r.Length + 2*r.Width
 }
 
 // Calculates area of rectangle
-func (rect *Rectangle) Area(r Rectangle) float64 {
-	return r.Length * r.Width
+func (rect Rectangle) Area() float64 {
+	return rect.Length * rect.Width
 }
 
-func (c *Circle) Area(circle Circle) float64 {
+func (c Circle) Area() float64 {
 	return math.Pi * c.Radius * c.Radius
 }
