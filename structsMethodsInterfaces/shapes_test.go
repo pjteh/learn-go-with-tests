@@ -8,27 +8,28 @@ import (
 func TestPerimeter(t *testing.T) {
 	rectangle := Rectangle{10.0, 10.0}
 	got := Perimeter(rectangle)
-	want := 40.0
-	if got != want {
-		t.Errorf("want %.2f, got %.2f", want, got)
+	hasArea := 40.0
+	if got != hasArea {
+		t.Errorf("hasArea %.2f, got %.2f", hasArea, got)
 	}
 }
 
 func TestArea(t *testing.T) {
 
 	areaTests := []struct {
-		shape Shape
-		want  float64
+		name    string
+		shape   Shape
+		hasArea float64
 	}{
-		{Rectangle{20, 40}, 800.00},
-		{Circle{10}, math.Pi * 10.0 * 10.0},
-		{Triangle{12, 6}, 36.0},
+		{name: "Rectangle", shape: Rectangle{Width: 20, Length: 40}, hasArea: 800.00},
+		{name: "Circle", shape: Circle{Radius: 10}, hasArea: math.Pi * 10.0 * 10.0},
+		{name: "Triangle", shape: Triangle{Base: 12, Height: 6}, hasArea: 36.0},
 	}
 
 	for _, area := range areaTests {
 		got := area.shape.Area()
-		if got != area.want {
-			t.Errorf("want %g, got %g", area.want, got)
+		if got != area.hasArea {
+			t.Errorf("hasArea %g, got %g", area.hasArea, got)
 		}
 	}
 }
