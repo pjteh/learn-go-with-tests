@@ -5,20 +5,28 @@ import (
 )
 
 const englishHelloPrefix = "Hello, "
+const germanHelloPrefix = "Hallo, "
 const spanishHelloPrefix = "Hola, "
+const frenchHelloPrefix = "Bonjour, "
 const spanish = "Spanish"
+const french = "French"
+const german = "German"
 
 func Hello(name, language string) string {
 	if name == "" {
 		name = "World"
 	}
-	if language == spanish {
-		return spanishHelloPrefix + name
+
+	prefix := englishHelloPrefix
+	switch language {
+	case spanish:
+		prefix = spanishHelloPrefix
+	case french:
+		prefix = frenchHelloPrefix
+	case german:
+		prefix = germanHelloPrefix
 	}
-	if language == "French" {
-		return "Bonjour, " + name
-	}
-	return englishHelloPrefix + name
+	return prefix + name
 }
 
 func World() string {
