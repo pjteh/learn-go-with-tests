@@ -1,13 +1,29 @@
 package wallet
 
+import "fmt"
+
+type Bitcoin int
+
 type Wallet struct {
-	Amount int
+	amount Bitcoin
 }
 
-func (w *Wallet) Deposit(deposit int) {
-	(*w).Amount = (*w).Amount + deposit
+type Stringer interface {
+	String() string
 }
 
-func (w *Wallet) Balance() int {
-	return w.Amount
+func (w *Wallet) Deposit(deposit Bitcoin) {
+	(*w).amount = (*w).amount + deposit
+}
+
+func (w *Wallet) Withdraw(amt Bitcoin) {
+	w.amount = w.amount - amt
+}
+
+func (w *Wallet) Balance() Bitcoin {
+	return w.amount
+}
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
 }
