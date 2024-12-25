@@ -15,13 +15,15 @@ type Stringer interface {
 	String() string
 }
 
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
 func (w *Wallet) Deposit(deposit Bitcoin) {
 	(*w).amount = (*w).amount + deposit
 }
 
 func (w *Wallet) Withdraw(amt Bitcoin) error {
 	if amt > w.amount {
-		return errors.New("cannot withdraw, insufficient funds")
+		return ErrInsufficientFunds
 	}
 	w.amount = w.amount - amt
 	return nil
