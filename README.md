@@ -6,3 +6,5 @@ This is just a repo containing my exercises, as I work through [Learn Go With Te
 ## Log
 <br>
 24 Dec 24: Completed Hello,World, Integers, Iteratiohn, Arrays and Slices, and Structs, methods and interfaces. 
+<br>
+25 Dec 24: Completed Pointers & Errors (1055hrs)
