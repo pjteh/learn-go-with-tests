@@ -31,4 +31,9 @@ func (d Dictionary) Add(word, def string) error {
 }
 
 func (d Dictionary) Update(word, definition string) {
+	_, err := d.Search(word)
+	if err != nil {
+		d.Add(word, definition)
+	}
+	d[word] = definition
 }
