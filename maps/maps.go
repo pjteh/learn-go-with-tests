@@ -15,3 +15,7 @@ func (d Dictionary) Search(searchString string) (string, error) {
 	}
 	return val, nil
 }
+
+func (d *Dictionary) Add(word, def string) {
+	(*d)[word] = def
+}

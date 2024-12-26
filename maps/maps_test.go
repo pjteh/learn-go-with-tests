@@ -20,6 +20,19 @@ func TestSearch(t *testing.T) {
 	})
 }
 
+func TestAdd(t *testing.T) {
+	t.Run("add single word", func(t *testing.T) {
+		dictionary := Dictionary{}
+		dictionary.Add("test", "this is a test")
+		got, err := dictionary.Search("test")
+		want := "this is a test"
+		if err != nil {
+			t.Fatal("should find added word:", err)
+		}
+		assertHelper(t, got, want)
+	})
+}
+
 func assertHelper(t *testing.T, got, want string) {
 	if got != want {
 		t.Errorf("want %s, got %s", want, got)
