@@ -1,6 +1,7 @@
 package main
 
-func Search(dict map[string]string, searchString string) string {
-	val := dict[searchString]
-	return val
+type Dictionary map[string]string
+
+func (d Dictionary) Search(searchString string) string {
+	return d[searchString]
 }
