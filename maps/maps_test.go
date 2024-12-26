@@ -25,9 +25,19 @@ func TestAdd(t *testing.T) {
 		dictionary := Dictionary{}
 		word := "test"
 		def := "this is a test"
-		dictionary.Add(word, def)
+		err := dictionary.Add(word, def)
+		assertError(t, err, nil)
 		assertDefinition(t, dictionary, word, def)
 	})
+	t.Run("existing word", func(t *testing.T) {
+		word := "test"
+		def := "this is a test"
+		dictionary := Dictionary{word: def}
+		err := dictionary.Add(word, "this is another definition")
+		assertError(t, err, ErrWordExists)
+		assertDefinition(t, dictionary, word, def)
+	})
+
 }
 
 func assertHelper(t *testing.T, got, want string) {
